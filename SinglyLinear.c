@@ -13,7 +13,7 @@ typedef struct node NODE;
 typedef struct node * PNODE;
 typedef struct node ** PPNODE;
 
-//int CountNode(PNODE);
+int CountNode(PNODE);
 
 void InsertFirst(PPNODE Head, int iNo)
 {
