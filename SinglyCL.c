@@ -203,50 +203,79 @@ void DeleteAtPos(PPNODE Head, int iPos)
 int main()
 {
     PNODE First = NULL;
-    int iRet = 0;
+    int choice = 0, position = 0, element = 0;
 
-    InsertFirst(&First, 101);
-    InsertFirst(&First, 51);
+    while(1)
+    {
+        printf("\n=== Singly Linked List Operations ===\n");
+        printf("1. Insert at First Position\n");
+        printf("2. Insert at Last Position\n");
+        printf("3. Insert at Specific Position\n");
+        printf("4. Delete First Node\n");
+        printf("5. Delete Last Node\n");
+        printf("6. Delete from Specific Position\n");
+        printf("7. Display List\n");
+        printf("8. Count Nodes\n");
+        printf("9. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
 
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+        switch(choice)
+        {
+            case 1:
+                printf("Enter element to insert: ");
+                scanf("%d", &element);
+                InsertFirst(&First, element);
+                printf("Element inserted successfully!\n");
+                break;
 
-    InsertLast(&First, 151);
-    InsertLast(&First, 201);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 2:
+                printf("Enter element to insert: ");
+                scanf("%d", &element);
+                InsertLast(&First, element);
+                printf("Element inserted successfully!\n");
+                break;
 
-    InsertAtPos(&First, 3, 75);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 3:
+                printf("Enter position: ");
+                scanf("%d", &position);
+                printf("Enter element to insert: ");
+                scanf("%d", &element);
+                InsertAtPos(&First, position, element);
+                break;
 
-    InsertAtPos(&First, 1, 25);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 4:
+                DeleteFirst(&First);
+                printf("First node deleted successfully!\n");
+                break;
 
-    InsertAtPos(&First, 7, 250);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 5:
+                DeleteLast(&First);
+                printf("Last node deleted successfully!\n");
+                break;
 
-    DeleteAtPos(&First, 3);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 6:
+                printf("Enter position to delete: ");
+                scanf("%d", &position);
+                DeleteAtPos(&First, position);
+                break;
 
-    DeleteFirst(&First);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 7:
+                Display(First);
+                break;
 
-    DeleteLast(&First);
-    Display(First);
-    iRet = Count(First);
-    printf("Number of nodes are : %d\n", iRet);
+            case 8:
+                printf("Number of nodes: %d\n", Count(First));
+                break;
+
+            case 9:
+                printf("Exiting program...\n");
+                return 0;
+
+            default:
+                printf("Invalid choice! Please try again.\n");
+        }
+    }
 
     return 0;
 }
