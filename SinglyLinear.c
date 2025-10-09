@@ -15,6 +15,7 @@ typedef struct node ** PPNODE;
 
 int CountNode(PNODE);
 
+// Insert at first
 void InsertFirst(PPNODE Head, int iNo)
 {
     PNODE newn = NULL;
